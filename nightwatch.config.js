@@ -40,7 +40,7 @@ module.exports = {
         "type" : "mocha",
         "options" : {
             "ui" : "bdd",
-            "reporter" : "list"
+            "reporter" : "spec"
         }
     }
 };
