@@ -34,9 +34,6 @@ class Controller {
             obj.status = "error";
             obj.reason = obj.message;
         }
-        this.result.classList.remove('success');
-        this.result.classList.remove('error');
-        this.result.classList.remove('progress');
         switch(obj.status) {
             case 'success':
                 this.result.classList.add('success');
