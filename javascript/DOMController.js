@@ -51,6 +51,7 @@ class Controller {
     }
 
     submit() {
+        this.result.innerText = '';
         // clear previous check
         Object.keys(this.inputs).map(i => this.inputs[i].classList.remove('error'));
         const form = this.validate();
