@@ -4,7 +4,9 @@
   "private": false,
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
-    "build_win": "SET NODE_ENV=production && webpack -p"
+    "build_win": "SET NODE_ENV=production && webpack -p",
+    "test:prepare": "node nightwatch.config.js",
+    "test": "npx nightwatch --config nightwatch.config.js ./test/e2e/"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -13,7 +15,12 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-latest": "^6.24.1",
-    "expose-loader": "^0.7.3",
+    "chai": "^4.1.0",
+    "chai-nightwatch": "^0.1.1",
+    "env2": "^2.2.0",
+    "mocha": "^3.5.0",
+    "nightwatch": "^0.9.16",
+    "selenium-download": "^2.0.10",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.4.1"
   }
