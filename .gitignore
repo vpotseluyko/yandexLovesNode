@@ -59,4 +59,3 @@ typings/
 # dotenv environment variables file
 .env
 # hide sources for some purpose
-javascript/*
