@@ -1,4 +1,5 @@
-**here only minified production ready version**
+**minified production ready version & src in `javascript`**
+
 **packed with selenium based tests**
 ```bash
 npm i 
