@@ -51,7 +51,7 @@ describe("Check form methods", function () {
 
     it("submit method", function (client) {
         client.setValue('input[name=fio]', 'One two three');
-        client.setValue('input[name=email]', 'vp@ya.ru');
+        client.setValue('input[name=email]', 'vp@yandex.ru');
         client.setValue('input[name=phone]', '+7(000)000-00-00');
         client.execute(
             "document.querySelector('form')" +

@@ -76,15 +76,11 @@ class Controller {
     }
 
     setData(obj) {
-        if (typeof obj.email !== 'undefined') {
-            this.inputs.email.value = obj.email;
-        }
-        if (typeof obj.phone !== 'undefined') {
-            this.inputs.phone.value = obj.phone;
-        }
-        if (typeof obj.fio !== 'undefined') {
-            this.inputs.fio.value = obj.fio;
-        }
+        Object.keys(obj).map(key => {
+           if (typeof this.inputs[key] !== 'undefined') {
+               this.inputs[key].value = obj[key];
+           }
+        });
     }
 
     validate() {
