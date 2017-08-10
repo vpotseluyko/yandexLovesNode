@@ -68,11 +68,11 @@ class Controller {
     }
 
     getData() {
-        return {
-            email: this.inputs.email.value,
-            fio: this.inputs.fio.value,
-            phone: this.inputs.phone.value
-        };
+        const result = {};
+        Object.keys(this.inputs).map(key => {
+            result[key] = this.inputs[key].value;
+        });
+        return result;
     }
 
     setData(obj) {
@@ -98,21 +98,15 @@ class Controller {
             el.value = el.value.trim().replace(/\s+/g, ' ');
             return el;
         };
-        try {
-            Validator.checkEmail(trimAdvanced(this.inputs.email).value)
-        } catch (e) {
-            handleError(e, 'email');
-        }
-        try {
-            Validator.checkFio(trimAdvanced(this.inputs.fio).value)
-        } catch (e) {
-            handleError(e, 'fio');
-        }
-        try {
-            Validator.checkPhone(trimAdvanced(this.inputs.phone).value)
-        } catch (e) {
-            handleError(e, 'phone');
-        }
+        Object.keys(this.inputs).map(key => {
+            try {
+                if (typeof Validator[key] !== 'undefined') {
+                    Validator[key](trimAdvanced(this.inputs[key]).value)
+                }
+            } catch (e) {
+                handleError(e, key);
+            }
+        });
         return {
             isValid: errors.length === 0,
             errorFields: errors

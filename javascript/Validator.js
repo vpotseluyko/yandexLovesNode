@@ -5,7 +5,7 @@ const Validate = {
      *                       where sum <= 30
      * @returns {boolean} or throws Exception
      */
-    checkPhone(phone) {
+    phone(phone) {
         if (!/^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/.test(phone)) {
             throw new Error('Формат телефона неверен')
         } else if (phone.match(/\d/g).reduce((a, b) => +a + +b, 0) > 30) {
@@ -18,7 +18,7 @@ const Validate = {
      * @param fio {string}
      * @returns {boolean}
      */
-    checkFio(fio) {
+    fio(fio) {
         fio = fio.trim().replace(/\s+/g, ' ');
         // delete spaces from end and begin; del double spaces; split by space
         if (fio.split(' ').length !== 3) {
@@ -32,7 +32,7 @@ const Validate = {
      * @param email
      * @returns {boolean}
      */
-    checkEmail(email) {
+    email(email) {
         const allowedDomains = [
             'ya.ru', 'yandex.kz', 'yandex.ru',
             'yandex.ua', 'yandex.by', 'yandex.com'
